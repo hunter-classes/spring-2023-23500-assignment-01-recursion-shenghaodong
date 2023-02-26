@@ -7,17 +7,15 @@ K**
   *
 3 --> 2
 */
-std::string solveKnight(char[][] chessboard, int rowStart, int colStart){
+
+std::string solveKnight(std::string[][] board){
     //Recursively Solve
     //Base Case
-    int counter = 0;
-    if(counter == 25){
-      return "";
-    }else if(counter ){
-
+    if(){
 
     }else{
-      //recurse 8 times for each way the knight can move
+      //Solve Up (left) then Up (right)
+      //Solve Down (left) then Down (right)
 
       //Up
       solveKnight(chessboard, row, col);
@@ -39,3 +37,5 @@ std::string solveKnight(char[][] chessboard, int rowStart, int colStart){
     //If Base Case not met solve for knight positions otherwise return
 
 }
+//Mark spot on Arraylist as "S" if solved so the program knows that the spot is already solved 
+//add a "return" if the program doesn't find any solutions
