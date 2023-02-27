@@ -8,16 +8,29 @@ K**
 3 --> 2
 */
 
-void solveKnight(int board[5][5], int col, int row, int counter, bool &solved){
+void solveKnight(int board[5][5], int col, int row, int &counter, bool &solved){
   //Base Case
   if(counter == 25){
     solved = true;
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+          if(board[i][j] < 10){
+            std::cout << board[i][j] << ":  ";
+          }else{
+            std::cout << board[i][j] << ": ";
+          }
+          
+        }
+        std::cout << "\n" << std::endl;
+    }
+
+    //Makes the counter 0 in case I wanted to use the function again
+    counter = 0;
     return;
   }
   
   if((col > 4 || row > 4) || (col < 0 || row < 0 || board[col][row] != 0)){
     //Checks for out of bounds if it is then go back on the stack
-    //std::cout << counter << std::endl;
     return;
   }
 
@@ -25,7 +38,6 @@ void solveKnight(int board[5][5], int col, int row, int counter, bool &solved){
   if(board[col][row] == 0){
     counter++;
     board[col][row] = counter;
-    std::cout << counter << std::endl;
   }
 
   //Recurse

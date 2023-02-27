@@ -10,30 +10,8 @@ int main(){
             board[i][j] = 0;
         }
     }
-    std::cout << "Testing" << std::endl;
 
-    solveKnight(board, 0, 0, counter, solved);
-
-    // for(int i = 0; i < 5; i++){
-    //     for(int j = 0; j < 5; j++){
-    //         std::cout << board[i][j] << " ";
-    //     }
-    //     std::cout << "\n" << std::endl;
-    // }
-
-
+    std::cout << "5x5 Knights Board, Starts at (2, 2)\n" << std::endl;
+    solveKnight(board, 2, 2, counter, solved);
     return 0;
 }
-
-
-/*
-    for(int i = 0; i < 5; i++){
-        for(int j = 0; j < 5; j++){
-            std::cout << board[i][j] << " ";
-        }
-        std::cout << "\n" << std::endl;
-    }
-
-    std::cout << counter << std::endl;
-
-*/
