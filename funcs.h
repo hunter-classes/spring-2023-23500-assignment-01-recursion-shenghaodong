@@ -1,3 +1,3 @@
 #pragma once
 
-std::string solveKnight();
+void solveKnight();

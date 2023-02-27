@@ -8,33 +8,42 @@ K**
 3 --> 2
 */
 
-std::string solveKnight(std::string[][] board){
-    //Recursively Solve
-    //Base Case
-    if(){
+void solveKnight(int board[5][5], int row, int col, int &counter){
+  //Base Case
+  if(counter == 25){
+    counter = 0;
+    exit(0);
+  }
+  if(row > 4 || col > 4){
+    //Checks for out of bounds if it is then go back on the stack
+    return;
+  }
+  //Check current position and if it's a new position mark it as the char 'S' and do counter++
+  if(board[row][col] == 0){
+    counter++;
+    board[row][col] == counter;
+    //Print position and stuff
+  }
 
-    }else{
-      //Solve Up (left) then Up (right)
-      //Solve Down (left) then Down (right)
+  //Recurse
 
-      //Up
-      solveKnight(chessboard, row, col);
-      solveKnight(chessboard, row, col);
+  //Up
+  solveKnight(board, row, col, counter);
+  solveKnight(board, row, col, counter);
 
-      //Down
-      solveKnight(chessboard, row, col);
-      solveKnight(chessboard, row, col);
+  //Down
+  solveKnight(board, row, col, counter);
+  solveKnight(board, row, col, counter);
 
-      //Left
-      solveKnight(chessboard, row, col);
-      solveKnight(chessboard, row, col);
+  //Left
+  solveKnight(board, row, col, counter);
+  solveKnight(board, row, col, counter);
 
-      //Right
-      solveKnight(chessboard, row, col);
-      solveKnight(chessboard, row, col);
-    }
+  //Right
+  solveKnight(board, row, col, counter);
+  solveKnight(board, row, col, counter);
 
-    //If Base Case not met solve for knight positions otherwise return
+  //If Base Case not met solve for knight positions otherwise return
 
 }
 //Mark spot on Arraylist as "S" if solved so the program knows that the spot is already solved 
