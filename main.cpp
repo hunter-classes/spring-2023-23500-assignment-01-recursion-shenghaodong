@@ -1,24 +1,39 @@
-//Rename File Later
 #include <iostream>
+#include "funcs.h"
+
 int main(){
-    int row = 5;
-    int col = 5;
-    int count = 0;
-    int chessBoard[row][col];
-    for(int i = 0; i < row; i++){
-        for(int j = 0; j < col; j++){
-            chessBoard[row][col] = 0;
+    int counter = 0;
+    int board[5][5];
+    bool solved = false;
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            board[i][j] = 0;
         }
     }
+    std::cout << "Testing" << std::endl;
 
-    //Visualize Board
-    // for(int i = 0; i < row; i++){
-    //     for(int j = 0; j < col; j++){
-    //         std::cout << chessBoard[row][col] + " ";
+    solveKnight(board, 0, 0, counter, solved);
+
+    // for(int i = 0; i < 5; i++){
+    //     for(int j = 0; j < 5; j++){
+    //         std::cout << board[i][j] << " ";
     //     }
-    //     std::cout << "\n";
+    //     std::cout << "\n" << std::endl;
     // }
 
-    //Solve Knight 5x5 Board with the starting point being 2, 2
+
     return 0;
 }
+
+
+/*
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            std::cout << board[i][j] << " ";
+        }
+        std::cout << "\n" << std::endl;
+    }
+
+    std::cout << counter << std::endl;
+
+*/

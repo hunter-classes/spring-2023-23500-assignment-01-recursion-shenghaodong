@@ -8,43 +8,40 @@ K**
 3 --> 2
 */
 
-void solveKnight(int board[5][5], int row, int col, int &counter){
+void solveKnight(int board[5][5], int col, int row, int counter, bool &solved){
   //Base Case
   if(counter == 25){
-    counter = 0;
-    exit(0);
-  }
-  if(row > 4 || col > 4){
-    //Checks for out of bounds if it is then go back on the stack
+    solved = true;
     return;
   }
-  //Check current position and if it's a new position mark it as the char 'S' and do counter++
-  if(board[row][col] == 0){
+  
+  if((col > 4 || row > 4) || (col < 0 || row < 0 || board[col][row] != 0)){
+    //Checks for out of bounds if it is then go back on the stack
+    //std::cout << counter << std::endl;
+    return;
+  }
+
+  //Check current position and if it's a new position mark it as the number it corresponds and do counter
+  if(board[col][row] == 0){
     counter++;
-    board[row][col] == counter;
-    //Print position and stuff
+    board[col][row] = counter;
+    std::cout << counter << std::endl;
   }
 
   //Recurse
-
   //Up
-  solveKnight(board, row, col, counter);
-  solveKnight(board, row, col, counter);
+  if (!solved) solveKnight(board, col - 2, row + 1, counter, solved);
+  if (!solved) solveKnight(board, col - 2, row - 1, counter, solved);
 
   //Down
-  solveKnight(board, row, col, counter);
-  solveKnight(board, row, col, counter);
+  if (!solved) solveKnight(board, col + 2, row + 1, counter, solved);
+  if (!solved) solveKnight(board, col + 2, row - 1, counter, solved);
 
   //Left
-  solveKnight(board, row, col, counter);
-  solveKnight(board, row, col, counter);
+  if (!solved) solveKnight(board, col + 1, row - 2, counter, solved);
+  if (!solved) solveKnight(board, col - 1, row - 2, counter, solved);
 
   //Right
-  solveKnight(board, row, col, counter);
-  solveKnight(board, row, col, counter);
-
-  //If Base Case not met solve for knight positions otherwise return
-
+  if (!solved) solveKnight(board, col + 1, row + 2, counter, solved);
+  if (!solved) solveKnight(board, col - 1, row + 2, counter, solved);
 }
-//Mark spot on Arraylist as "S" if solved so the program knows that the spot is already solved 
-//add a "return" if the program doesn't find any solutions
