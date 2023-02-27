@@ -1,5 +1,5 @@
 #include <iostream>
-#include "funcs.h"
+#include "knights.h"
 
 int main(){
     int counter = 0;
